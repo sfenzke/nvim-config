@@ -28,6 +28,15 @@ require("lazy").setup({
     fallback = true
   },
   spec = {
+    {
+      "folke/tokyonight.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {
+        style = "night",
+        dim_inactive = true
+      },
+    },
     -- import your plugins
     { import = "plugins" },
   },
@@ -37,3 +46,5 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
+
+vim.cmd[[colorscheme tokyonight]]
