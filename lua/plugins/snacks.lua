@@ -14,7 +14,10 @@ return {
 
     bigfile = { enabled = true },
     dashboard = require("config.snacks.dashboard"),
-    explorer = { enabled = true },
+    explorer = { 
+      enabled = true,
+      replace_netrw = true
+    },
     indent = { enabled = true },
     input = { enabled = true },
     picker = { enabled = true },
@@ -98,6 +101,8 @@ return {
     { "<c-_>",      function() Snacks.terminal() end, desc = "which_key_ignore" },
     { "]]",         function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
     { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
+    { "<leader>st", function() Snacks.picker.todo_comments() end, desc = "Todo" },
+    { "<leader>sT", function () Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } }) end, desc = "Todo/Fix/Fixme" },
     {
       "<leader>N",
       desc = "Neovim News",
